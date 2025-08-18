@@ -1,0 +1,82 @@
+PFB Few questions, plz prepare as much as you can & help us to close this position.
+
+What is redux  
+
+React router 
+
+Functional and class components 
+
+React hooks 
+
+Previous projects architecture  
+
+Lift cycle methods 
+
+Props 
+
+
+Round 1 -- It's about 30 minutes . He asked the questions based on the react only like react hooks, redux, Real and Virtual DOM, React LifeCycle, class & functional components and also about previous project high end overview. 
+
+Round 2 -- Its about 45 minutes . They have asked about React like react usage in previous project and tools like redux and its functionality, context API, Formik, React Hook forms, props, Fetch API, Axios. Its based on scenarios like Navigation from home page to login page i.e, frontend overview for shopping cart and payments. 
+
+Round 3 -- It's about 1 hour 15 minutes. 45 minutes about coding for a react desktop application. 30 minutes about the React scenarios based on previous project and some react questions like context api and redux usage difference and git commands like git merge and git rebase. 
+
+Round 4 -- It's about 28 minutes. She asked about previous 2 projects complete functionality in depth like why using React hook for dynamic forms instead of Formik with Yup validation. She asked about how to solve the code changes for an assigned ticket. I mean the approach for that scenario. 
+
+ 
+
+1. How will you analyze the tasks assigned to you, and how would you structure your work accordingly? For example, How would you think about designing a form to enter a prescription with appropriate validations? 
+
+2. End-to-end architecture of the recent project 
+
+3. Your process for unit testing 
+
+4. They had a claim that when a person made a submission, the Backend received 4 API calls(3 were duplicates). How will you prevent this from happening? 
+
+5. How will you work on a UI ticket with some Backend Interaction? What info will you ask the Backend team? 
+
+ 
+
+write a code for str reverse using JS (both with inbuilt function and without using any inbuilt functions) 
+
+let, const 
+
+scope 
+
+tags that you have used in html, related basic questions 
+
+session storage, local storage 
+
+Typescript - most of the basic questions 
+
+      - union vs intersection 
+
+      - readyonly vs array readonly 
+
+      - type vs interface 
+
+  
+
+meaning of CI and CD. your project setup in detail. 
+
+version control 
+
+error boundaries 
+
+react provider 
+
+context 
+
+redux - repeated questions related to state management 
+
+reducer 
+
+middleware 
+
+  
+
+if you have a input and output component, how do you pass data between the two component using redux. 
+
+same with react context. entire code  
+
+if you are having more than 50 props in a component that is passed to child. How would you refactor this complexity 
