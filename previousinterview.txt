@@ -1,82 +1,180 @@
-PFB Few questions, plz prepare as much as you can & help us to close this position.
+1. Redux
+Predictable state container for JS apps: single store, immutable state updates via pure reducers, actions describe changes, middleware for side-effects, DevTools for time-travel.
 
-What is redux  
+2. React Router
+Client-side routing. Define <Routes>/<Route>, navigate with <Link>/useNavigate, read params with useParams, guards via loaders/actions in v6.4+.
 
-React router 
+3. Functional vs Class components
+Functional comp Definition: A function that takes props as input and returns a UI element (JSX).
+Functional = functions + hooks, lighter and preferred. 
+Class = lifecycle methods + this/state. Hooks replace most class lifecycles.
 
-Functional and class components 
+4. React hooks
+useState, useEffect, useMemo, useCallback, useRef, useReducer, useLayoutEffect, useImperativeHandle. 
+Custom hooks encapsulate reusable logic.
 
-React hooks 
+5. United Airlines – architecture (short)
+React 18 + TypeScript + ATMOS design system; Redux + Redux-Saga for async; 
+API layer to Java/Node microservices via API Gateway; AuthN with SSO/JWT; analytics tagging; WCAG 2.1; 
+feature flags; CI/CD on Git; observability via logs/metrics; caching and AB tests. Pages migrated from .NET to React.
 
-Previous projects architecture  
+6. Lifecycle methods (class → hook analogs)
+componentDidMount → useEffect(() => {...}, []).
+componentDidUpdate → useEffect on deps.
+componentWillUnmount → cleanup return in useEffect.
+shouldComponentUpdate → React.memo/useMemo/useCallback.
+getDerivedStateFromProps → useEffect/derived calc.
 
-Lift cycle methods 
+7. Props
+Read-only inputs to components. Flow parent→child. Validate with TypeScript. Avoid drilling via context.
 
-Props 
+8. Real vs Virtual DOM
+Real DOM = browser nodes. Virtual DOM = in-memory tree diffed each render; React reconciles and patches minimal changes to the real DOM.
 
+9. United – previous project overview
+Built account/security flows: Forgot Password/MileagePlus, KTN/TSA PreCheck, Under-18 rules, Miles-Pooling, United Club pass. Migrated to React with ATMOS, improved accessibility, performance, and analytics.
 
-Round 1 -- It's about 30 minutes . He asked the questions based on the react only like react hooks, redux, Real and Virtual DOM, React LifeCycle, class & functional components and also about previous project high end overview. 
+10. Context API
+Share values without prop drilling. createContext → <Provider value> → useContext() in consumers. Use for theme, auth, config.
 
-Round 2 -- Its about 45 minutes . They have asked about React like react usage in previous project and tools like redux and its functionality, context API, Formik, React Hook forms, props, Fetch API, Axios. Its based on scenarios like Navigation from home page to login page i.e, frontend overview for shopping cart and payments. 
+11. Formik
+Form state + validation helpers. Works well with Yup schemas, controlled inputs, easy field components. More re-renders on large forms.
 
-Round 3 -- It's about 1 hour 15 minutes. 45 minutes about coding for a react desktop application. 30 minutes about the React scenarios based on previous project and some react questions like context api and redux usage difference and git commands like git merge and git rebase. 
+12. React Hook Form
+Uncontrolled by default, register inputs, great performance and dynamic fields, resolver for Yup/Zod. Ideal for big/dynamic forms.
 
-Round 4 -- It's about 28 minutes. She asked about previous 2 projects complete functionality in depth like why using React hook for dynamic forms instead of Formik with Yup validation. She asked about how to solve the code changes for an assigned ticket. I mean the approach for that scenario. 
+13. Fetch vs Axios + nav scenario
+fetch is low-level (manual JSON/error handling). Axios adds interceptors, timeouts, JSON by default, cancellation.
+Scenario: on login submit → disable button → call /login → store token → route to /checkout → guard routes on auth.
 
- 
+14. git merge vs rebase
+merge: non-linear history, preserves commits.
+rebase: linear history, rewrites commits.
+Commands:
+- merge: git checkout main; git merge feature
+- rebase: git checkout feature; git rebase main; fix; git push --force-with-lease
 
-1. How will you analyze the tasks assigned to you, and how would you structure your work accordingly? For example, How would you think about designing a form to enter a prescription with appropriate validations? 
+15. Why RHF for dynamic forms vs Formik+Yup; approach to a ticket
+RHF: fewer re-renders, easy add/remove fields, tiny bundle. Formik can be heavier on complex dynamic lists.
+Approach: clarify ACs → branch → write tests → implement → self-QA → PR with context → address review → merge/monitor.
 
-2. End-to-end architecture of the recent project 
+16. Analyzing tasks; designing prescription form
+Break down ACs, edge cases, data model, API contract, perf and a11y.
+Form: schema (patient, meds, dosage), required/format validators, async drug lookup, debounced search, keyboard nav, aria-invalid + error summaries, optimistic UX, unit and e2e tests.
 
-3. Your process for unit testing 
+17. End-to-end architecture (recent)
+UI: React+TS, RTK Query/Redux, RHF, Router.
+BFF: Node/NestJS (auth, aggregation, caching).
+Services: REST/GraphQL microservices.
+Auth: OAuth2/JWT, refresh flow.
+CI/CD: PR checks (lint/test/build), deploy to dev/stage/prod, feature flags.
+Obs: logs, metrics, tracing, uptime checks.
 
-4. They had a claim that when a person made a submission, the Backend received 4 API calls(3 were duplicates). How will you prevent this from happening? 
+18. Unit testing process
+Jest + React Testing Library. Test pure functions, reducers/selectors, hooks, components (render/ARIA/errors), mock network with MSW, snapshot critical UI, coverage gates.
 
-5. How will you work on a UI ticket with some Backend Interaction? What info will you ask the Backend team? 
+19. Prevent duplicate submissions
+Disable submit on first click, debounce/throttle, idempotency key header, client request-in-flight guard, cancel previous via AbortController, server dedupe.
 
- 
+20. Working a UI ticket with backend
+Ask for: endpoint paths, request/response schema, status/error codes, auth, rate limits, pagination, idempotency, SLAs, test data, Swagger/Postman, env URLs, versioning. Agree on contracts before coding.
 
-write a code for str reverse using JS (both with inbuilt function and without using any inbuilt functions) 
+21. Reverse string (with and without helpers)
+// with built-ins
+const reverse = s => [...s].reverse().join('');
+/* without built-ins */
+function reverseManual(s){
+  let out = '';
+  for (let i = s.length - 1; i >= 0; i--) out += s[i];
+  return out;
+}
 
-let, const 
+22. let vs const
+Both block-scoped. let is reassignable. const binds the variable (not deep immutability). TDZ applies to both.
 
-scope 
+23. Scope
+Global, function, block. Closures capture lexical scope. Modules have their own scope.
 
-tags that you have used in html, related basic questions 
+24. HTML tags basics
+Semantic: header, nav, main, section, article, aside, footer. Media: img, video, audio, picture, source. Forms: form, input, label, select, textarea, button. Lists: ul/ol/li. Table: table/thead/tbody/tr/td. Meta: meta, link, script. ARIA attrs for a11y.
 
-session storage, local storage 
+25. sessionStorage vs localStorage
+Both key/value strings. localStorage persists across tabs/sessions; sessionStorage per-tab, clears on close. ~5–10MB. Don’t store secrets; consider same-site cookies for auth.
 
-Typescript - most of the basic questions 
+26. TypeScript basics
+- Union vs intersection: A | B either; A & B both.
+- readonly vs ReadonlyArray: readonly x: T blocks reassignment; ReadonlyArray<T> blocks mutating methods (push/splice).
+- type vs interface: both for shapes. interface merges/extends better; type handles unions/tuples/conditional types.
 
-      - union vs intersection 
+27. CI/CD + project setup
+CI = automated build/test/lint. CD = deploy to envs. Setup: GitHub Actions/Jenkins → install, lint, typecheck, unit tests, build → artifact → deploy to dev/stage → smoke tests → prod behind flags.
 
-      - readyonly vs array readonly 
+28. Version control
+Branching (trunk or GitFlow), small PRs, code reviews, semantic commits, protected main, tags/releases, hotfix strategy.
 
-      - type vs interface 
+29. Error boundaries
+Catch render errors below them; show fallback UI. Implement as class with componentDidCatch/getDerivedStateFromError or use a library wrapper. Place near route/page boundaries.
 
-  
+30. React provider
+A component that supplies a context value to descendants. Example: <AuthProvider value={user}>.
 
-meaning of CI and CD. your project setup in detail. 
+31. Context (one-liner)
+Global-ish state without prop drilling; read via useContext.
 
-version control 
+32. Redux – state management notes
+Use Redux Toolkit slices, Immer for immutable updates, RTK Query for data fetching, normalize state, memoized selectors (Reselect), keep store small.
 
-error boundaries 
+33. Reducer (example)
+function counter(state = {count: 0}, action){
+  switch(action.type){
+    case 'inc': return {count: state.count + 1};
+    case 'dec': return {count: state.count - 1};
+    default: return state;
+  }
+}
 
-react provider 
+34. Middleware (what/why)
+Intercept actions between dispatch and reducer: logging, async (thunk/saga), analytics, error/reporting, auth refresh.
 
-context 
+35. Input→Output via Redux (minimal)
+// slice
+const slice = createSlice({
+  name: 'io',
+  initialState: { value: '' },
+  reducers: { setValue: (s,a)=>{ s.value = a.payload; } }
+});
+export const { setValue } = slice.actions;
 
-redux - repeated questions related to state management 
+// Input
+function Input(){ 
+  const dispatch = useDispatch();
+  return <input onChange={e=>dispatch(setValue(e.target.value))} />;
+}
 
-reducer 
+// Output
+function Output(){
+  const v = useSelector(s=>s.io.value);
+  return <p>{v}</p>;
+}
 
-middleware 
+36. Same with Context (minimal)
+const IOContext = React.createContext(null);
 
-  
+function IOProvider({children}){
+  const [value, setValue] = React.useState('');
+  const ctx = React.useMemo(()=>({value,setValue}),[value]);
+  return <IOContext.Provider value={ctx}>{children}</IOContext.Provider>;
+}
 
-if you have a input and output component, how do you pass data between the two component using redux. 
+function Input(){
+  const { setValue } = React.useContext(IOContext);
+  return <input onChange={e=>setValue(e.target.value)} />;
+}
 
-same with react context. entire code  
+function Output(){
+  const { value } = React.useContext(IOContext);
+  return <p>{value}</p>;
+}
 
-if you are having more than 50 props in a component that is passed to child. How would you refactor this complexity 
+37. 50+ props refactor
+Group related props into objects (config, styles, data). Use Context for cross-cutting data. Break child into smaller components. Prefer composition over mega-props. Pass callbacks as a single handlers object. Co-locate state. Consider a form library or a view-model prop. Add prop types via TS to catch misuse. Memoize heavy children.
